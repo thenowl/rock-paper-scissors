@@ -1,9 +1,16 @@
 const playerChoice = document.querySelector("#playerChoice");
+const comChoiceImg = document.querySelector("#comChoiceImg");
+const humChoiceImg = document.querySelector("#humChoiceImg");
 let result = document.querySelector("#result");
 let comScore = document.querySelector("#computerScore");
 let humScore = document.querySelector("#humanScore");
 let humanScore = 0;
 let computerScore = 0;
+const comChoiceImages = [
+  "./img/fist.png",
+  "./img/hand-paper.png",
+  "./img/scissors.png",
+];
 
 // let computer randomly choose rock, paper, or scissors:
 
@@ -12,6 +19,7 @@ function getComputerChoice() {
   let computerChoice =
     randomNumber === 0 ? "rock" : randomNumber === 1 ? "paper" : "scissors";
 
+  comChoiceImg.src = comChoiceImages[randomNumber];
   return computerChoice;
 }
 
@@ -25,12 +33,15 @@ playerChoice.addEventListener("click", (event) => {
   switch (target.id) {
     case "rock":
       humanChoice = "rock";
+      humChoiceImg.src = comChoiceImages[0];
       break;
     case "paper":
       humanChoice = "paper";
+      humChoiceImg.src = comChoiceImages[1];
       break;
     case "scissors":
       humanChoice = "scissors";
+      humChoiceImg.src = comChoiceImages[2];
       break;
   }
 
@@ -60,12 +71,19 @@ function scoreSystem() {
 // Play one round of the game:
 
 function playRound(humanChoice, computerChoice) {
+  const winningColor =
+    "background: rgba(102, 252, 241, 1); box-shadow: 0 0 10px rgba(197, 198, 199, 0.8)";
+  const loosingColor = "background: rgba(102, 252, 241, 0.3);";
+  const defaultColor = "background: rgba(102, 252, 241, 0.7);";
+
   let computerMessage =
     computerChoice[0].toUpperCase() + computerChoice.substr(1);
   let humanMessage = humanChoice[0].toUpperCase() + humanChoice.substr(1);
 
   if (humanChoice === computerChoice) {
     result.textContent = `${computerMessage} meets ${humanMessage}. It's a tie game!`;
+    comChoiceImg.style.cssText = defaultColor;
+    humChoiceImg.style.cssText = defaultColor;
   } else if (
     (humanChoice === "rock" && computerChoice === "paper") ||
     (humanChoice === "paper" && computerChoice === "scissors") ||
@@ -73,9 +91,13 @@ function playRound(humanChoice, computerChoice) {
   ) {
     ++computerScore;
     result.textContent = `${computerMessage} beats ${humanMessage}. Computer wins!`;
+    comChoiceImg.style.cssText = winningColor;
+    humChoiceImg.style.cssText = loosingColor;
   } else {
     humanScore++;
     result.textContent = `${humanMessage} beats ${computerMessage}. You win!`;
+    comChoiceImg.style.cssText = loosingColor;
+    humChoiceImg.style.cssText = winningColor;
   }
   scoreSystem();
 }

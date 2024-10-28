@@ -4,27 +4,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rock Paper Scissors</title>
+  <title>Rock &#10209; Paper &#10209; Scissors</title>
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
 
   <header>
-    <h1>Rock, Paper, Scissors</h1>
+    <h1>Rock &#10209; Paper &#10209; Scissors</h1>
   </header>
   <main>
-    <div id="playerChoice">
+    <div class="player-choice" id="playerChoice">
       <button id="rock">Rock</button>
       <button id="paper">Paper</button>
       <button id="scissors">Scissors</button>
     </div>
-    <div>
-      <p id="result"></p>
-      <p id="computerScore"></p>
-      <p id="humanScore"></p>
+    <div class="text-container">
+      <div class="human-score">
+        <img class="choice-img" id="humChoiceImg" src="./img/question-sign.png" width="50" height="50">
+        <p id="humanScore"></p>
+      </div>
+      <div class="result">
+        <p id="result"></p>
+      </div>
+      <div class="computer-score">
+        <img class="choice-img" id="comChoiceImg" src="./img/question-sign.png" width="50" height="50">
+        <p id="computerScore"></p>
+      </div>
     </div>
   </main>
+
+  <footer>
+    <p>Copyright &copy; 2024 thenowl</p>
+    <ul>
+      <li><a href="https://www.flaticon.com/free-icons/fist" title="fist icons" target="_blank">Fist icons created by
+          Cuputo -
+          Flaticon</a></li>
+      <li>
+        <a href="https://www.flaticon.com/free-icons/rock-paper-scissors" title="rock paper scissors icons"
+          target="_blank">Rock paper
+          scissors icons created by iconading - Flaticon</a>
+      </li>
+      <li>
+        <a href="https://www.flaticon.com/free-icons/rock-paper-scissors" title="rock paper scissors icons"
+          target="_blank">Rock paper
+          scissors icons created by Cap Cool - Flaticon</a>
+      </li>
+    </ul>
+  </footer>
   <script src="./js/javascript.js"></script>
 </body>
 
