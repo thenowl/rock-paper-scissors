@@ -60,30 +60,22 @@ function scoreSystem() {
 // Play one round of the game:
 
 function playRound(humanChoice, computerChoice) {
+  let computerMessage =
+    computerChoice[0].toUpperCase() + computerChoice.substr(1);
+  let humanMessage = humanChoice[0].toUpperCase() + humanChoice.substr(1);
+
   if (humanChoice === computerChoice) {
-    result.textContent = `${
-      computerChoice[0].toUpperCase() + computerChoice.substr(1)
-    } meets ${
-      humanChoice[0].toUpperCase() + humanChoice.substr(1)
-    }. It's a tie game!`;
+    result.textContent = `${computerMessage} meets ${humanMessage}. It's a tie game!`;
   } else if (
     (humanChoice === "rock" && computerChoice === "paper") ||
     (humanChoice === "paper" && computerChoice === "scissors") ||
     (humanChoice === "scissors" && computerChoice === "rock")
   ) {
     ++computerScore;
-    result.textContent = `${
-      computerChoice[0].toUpperCase() + computerChoice.substr(1)
-    } beats ${
-      humanChoice[0].toUpperCase() + humanChoice.substr(1)
-    }. Computer wins!`;
+    result.textContent = `${computerMessage} beats ${humanMessage}. Computer wins!`;
   } else {
     humanScore++;
-    result.textContent = `${
-      humanChoice[0].toUpperCase() + humanChoice.substr(1)
-    } beats ${
-      computerChoice[0].toUpperCase() + computerChoice.substr(1)
-    }. You win!`;
+    result.textContent = `${humanMessage} beats ${computerMessage}. You win!`;
   }
   scoreSystem();
 }
